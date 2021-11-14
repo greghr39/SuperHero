@@ -1,0 +1,34 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.31025.194
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SuperHeroLab", "SuperHeroLab\SuperHeroLab.csproj", "{22184124-858F-4AE2-B56F-A8EA218A567F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SuperHeroLabTest", "SuperHeroLabTest\SuperHeroLabTest.csproj", "{26BB19DB-3AFA-4852-942C-1AED97476592}"
+	ProjectSection(ProjectDependencies) = postProject
+		{22184124-858F-4AE2-B56F-A8EA218A567F} = {22184124-858F-4AE2-B56F-A8EA218A567F}
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{22184124-858F-4AE2-B56F-A8EA218A567F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{22184124-858F-4AE2-B56F-A8EA218A567F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{22184124-858F-4AE2-B56F-A8EA218A567F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{22184124-858F-4AE2-B56F-A8EA218A567F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{26BB19DB-3AFA-4852-942C-1AED97476592}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{26BB19DB-3AFA-4852-942C-1AED97476592}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{26BB19DB-3AFA-4852-942C-1AED97476592}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{26BB19DB-3AFA-4852-942C-1AED97476592}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {3B9F25C2-513E-45B2-91EF-B74EA8BD1B8D}
+	EndGlobalSection
+EndGlobal

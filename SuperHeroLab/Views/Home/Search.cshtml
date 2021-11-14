@@ -1,0 +1,50 @@
+﻿@model SuperHeroLab.Data.Model.SearchResponse
+
+@{ ViewData["Title"] = "Search Page"; }
+<link href="~/lib/bootstrap/dist/css/custom.css" rel="stylesheet" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<br />
+
+<form asp-controller="Home" asp-action="Search" method="get">
+    <div class="row">
+        <div class="col-md-10">
+            <div class="form-group">
+                <input type="text" class="form-control" placeholder="Enter the name of your favorite superhero or villian to search" name="value" value="@ViewData["value"]" required>
+            </div>
+        </div>
+        <div class="col-md-2">
+            <input type="submit" asp-controller="Home" asp-action="Search" value="Search" class="btn btn-primary " />
+        </div>
+    </div>
+</form>
+
+<br />
+
+<div class="row">
+    @if (Model.Response.Equals("success"))
+    {
+        @foreach (var Hero in Model.Results)
+        {
+            <div class="col-md-3" style="margin: 10px">
+                <div class="card" style="width: 18rem;">
+                    <img class="card-img-top" src="@Hero.Image.Url" alt="Superhero">
+                    <div class="card-body">
+                        <h5 class="card-title">@Hero.Name</h5>
+                        <p class="card-text">Gender: @Hero.Appearance.Gender</p>                        
+                    </div>
+                    <div class="card-footer text-center">
+                        <a asp-controller="Hero" asp-route-id="@Hero.Id" asp-action="Search" class="btn btn-info">Get details</a>
+                    </div>
+                </div>
+            </div>
+         }
+    } else
+    {
+        <div class="col text-center">
+            <div class="alert alert-danger" role="alert">
+                @Model.Error
+            </div>
+        </div>        
+    }
+</div>

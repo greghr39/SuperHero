@@ -1,0 +1,210 @@
+﻿@model SuperHeroLab.Data.Model.HeroResponse
+
+@{ ViewData["Title"] = "Hero Detail Page"; }
+<link href="~/lib/bootstrap/dist/css/custom.css" rel="stylesheet" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<br />
+
+<form asp-controller="Home" asp-action="Search" method="get">
+    <div class="row">
+        <div class="col-md-10">
+            <div class="form-group">
+                <input type="text" class="form-control" placeholder="Enter the name of your favorite superhero or villian to search" name="value" value="@ViewData["value"]" required>
+            </div>
+        </div>
+        <div class="col-md-2">
+            <input type="submit" asp-controller="Home" asp-action="Search" value="Search" class="btn btn-primary " />
+        </div>
+    </div>
+</form>
+
+<br />
+
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-md-4">
+            <div class="card card-primary card-outline">
+                <div class="card-body box-profile">
+                   <img class="card-img-top" src="@Model.Image.Url" alt="picture"> 
+                </div>
+                <div class="card-footer">
+                    <h3 class="profile-username text-center">@Model.Name</h3>
+                </div>
+            </div>
+        </div>
+        <!-- /.col -->
+        <div class="col-md-8">
+            <div class="card">
+                <div class="card-header p-2">
+                    <ul class="nav nav-pills">
+                        <li class="nav-item"><a class="nav-link active" href="#powerstats" data-toggle="tab">Powerstats</a></li>
+                        <li class="nav-item"><a class="nav-link" href="#biography" data-toggle="tab">Biography</a></li>
+                        <li class="nav-item"><a class="nav-link" href="#appearance" data-toggle="tab">Appearance</a></li>
+                        <li class="nav-item"><a class="nav-link" href="#work" data-toggle="tab">Work</a></li>
+                        <li class="nav-item"><a class="nav-link" href="#connections" data-toggle="tab">Connections</a></li>
+                    </ul>
+                </div><!-- /.card-header -->
+                <div class="card-body">
+                    <div class="tab-content">
+                        <div class="active tab-pane" id="powerstats">
+                            <p class="lead">Powerstats</p>
+                            <div class="table-responsive">
+                                <table class="table">
+                                    <tbody>
+                                        <tr>
+                                            <th style="width:50%">Intelligence:</th>
+                                            <td>@Model.Powerstats.Intelligence</td>
+                                        </tr>
+                                        <tr>
+                                            <th>Strength:</th>
+                                            <td>@Model.Powerstats.Strength</td>
+                                        </tr>
+                                        <tr>
+                                            <th>Speed:</th>
+                                            <td>@Model.Powerstats.Speed</td>
+                                        </tr>
+                                        <tr>
+                                            <th>Durability:</th>
+                                            <td>@Model.Powerstats.Durability</td>
+                                        </tr>
+                                        <tr>
+                                            <th>Power:</th>
+                                            <td>@Model.Powerstats.Power</td>
+                                        </tr>
+                                        <tr>
+                                            <th>Combat:</th>
+                                            <td>@Model.Powerstats.Combat</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                        <!-- /.tab-pane -->
+                        <div class="tab-pane" id="biography">
+                            <p class="lead">Biography</p>
+                            <div class="table-responsive">
+                                <table class="table">
+                                    <tbody>
+                                        <tr>
+                                            <th style="width:50%">Full Name:</th>
+                                            <td>@Model.Biography.FullName</td>
+                                        </tr>
+                                        <tr>
+                                            <th>Alter Egos:</th>
+                                            <td>@Model.Biography.AlterEgos</td>
+                                        </tr>
+                                        <tr>
+                                            <th>Aliases:</th>
+                                            <td>@{
+                                                    string aliases = string.Join(",", Model.Biography.Aliases);
+                                                    @aliases
+                                                }</td>
+                                        </tr>
+                                        <tr>
+                                            <th>Place of Birth:</th>
+                                            <td>@Model.Biography.PlaceOfBirth</td>
+                                        </tr>
+                                        <tr>
+                                            <th>First Appearance:</th>
+                                            <td>@Model.Biography.FirstAppearance</td>
+                                        </tr>
+                                        <tr>
+                                            <th>Publisher:</th>
+                                            <td>@Model.Biography.Publisher</td>
+                                        </tr>
+                                        <tr>
+                                            <th>Alignment:</th>
+                                            <td>@Model.Biography.Alignment</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                        <!-- /.tab-pane -->
+                        <div class="tab-pane" id="appearance">
+                            <p class="lead">Appearance</p>
+                            <div class="table-responsive">
+                                <table class="table">
+                                    <tbody>
+                                        <tr>
+                                            <th style="width:50%">Gender:</th>
+                                            <td>@Model.Appearance.Gender</td>
+                                        </tr>
+                                        <tr>
+                                            <th>Race:</th>
+                                            <td>@Model.Appearance.Race</td>
+                                        </tr>
+                                        <tr>
+                                            <th>Height:</th>
+                                            <td>@{
+                                                    string height = string.Join(",", Model.Appearance.Height);
+                                                    @height
+                                                }</td>
+                                        </tr>
+                                        <tr>
+                                            <th>Weight:</th>
+                                            <td>@{
+                                                    string weight = string.Join(",", Model.Appearance.Weight);
+                                                    @weight
+                                                }</td>
+                                        </tr>
+                                        <tr>
+                                            <th>Eye Color:</th>
+                                            <td>@Model.Appearance.EyeColor</td>
+                                        </tr>
+                                        <tr>
+                                            <th>Hair Color:</th>
+                                            <td>@Model.Appearance.HairColor</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                        <!-- /.tab-pane -->
+                        <div class="tab-pane" id="work">
+                            <p class="lead">Work</p>
+                            <div class="table-responsive">
+                                <table class="table">
+                                    <tbody>
+                                        <tr>
+                                            <th style="width:50%">Occupation:</th>
+                                            <td>@Model.Work.Occupation</td>
+                                        </tr>
+                                        <tr>
+                                            <th>Base:</th>
+                                            <td>@Model.Work.Base</td>
+                                        </tr>                                        
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                        <!-- /.tab-pane -->
+                        <div class="tab-pane" id="connections">
+                            <p class="lead">Connections</p>
+                            <div class="table-responsive">
+                                <table class="table">
+                                    <tbody>
+                                        <tr>
+                                            <th style="width:50%">Group Affiliation:</th>
+                                            <td>@Model.Connections.GroupAffiliation</td>
+                                        </tr>
+                                        <tr>
+                                            <th>Relatives:</th>
+                                            <td>@Model.Connections.Relatives</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                        <!-- /.tab-pane -->
+                    </div>
+                    <!-- /.tab-content -->
+                </div><!-- /.card-body -->
+            </div>
+            <!-- /.nav-tabs-custom -->
+        </div>
+        <!-- /.col -->
+    </div>
+    <!-- /.row -->
+</div>

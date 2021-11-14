@@ -1,0 +1,18 @@
+﻿@{ ViewData["Title"] = "Search Page"; }
+<link href="~/lib/bootstrap/dist/css/custom.css" rel="stylesheet" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<br />
+
+<form asp-controller="Home" asp-action="Search" method="get">
+    <div class="row">
+        <div class="col-md-10">
+            <div class="form-group">
+                <input type="text" required class="form-control" placeholder="Enter the name of your favorite superhero or villian to search" name="value" value="@ViewData["value"]">
+            </div>
+        </div>
+        <div class="col-md-2">
+            <input type="submit" asp-controller="Home" asp-action="Search" value="Search" class="btn btn-primary " />
+        </div>
+    </div>
+</form>
